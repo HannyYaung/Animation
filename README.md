@@ -137,33 +137,33 @@ animator.start();
 > 设置监听器的方法,ViewpropertyAnimator 和 ObjectAnimator 略微不同,ViewpropertyAnimator用的是setListener()和setUpdateListener()方法,可以设置一个监听器,移除要通过set(null)的方式移除,而ObjectiveAnimator则是用addListener()和addUpdateListener()来添加一个或多个监听器,通过remove来制定移除对象.
 另外,由于ObjectAnimator 支持使用pause() 方法暂停,所以它还多了一个addPauseListerner/removePauseListener() 的支持; 而ViewpropertyAnimator 则独有withStartAnimator 和 withEndAnimator 方法,可以设置一次动画开始或者结束的监听.
 
-####  3.1 ViewPropertyAnimator.setListener()/ObjectAnimator.addListener()
+###  3.1 ViewPropertyAnimator.setListener()/ObjectAnimator.addListener()
 
 这两个方法的名称不一样,可以设置的监听器数量也不一样,但他们参数类型都是AnimatorListener,本质都是一样的.AnimatorListener 共有四个回调方法:
 
-#####  3.1.1 onAnimationStart(Animator animation)
+####  3.1.1 onAnimationStart(Animator animation)
 
 当动画开始的时候方法被调用
 
-#####  3.1.2 onAnimationEnd(Animator animation)
+####  3.1.2 onAnimationEnd(Animator animation)
 
 当动画结束的时候被调用
 
-#####  3.1.3 onAnimationCancel(Animator animation)
+####  3.1.3 onAnimationCancel(Animator animation)
 
 当动画被通过cancel()方法取消时,这个方法被调用.
 
-##### 3.1.4 onAnimatorRepeat(Animator animatio)
+#### 3.1.4 onAnimatorRepeat(Animator animatio)
 
 当动画通过 setRepeatMode 和 setRepeatCount() 或 repeat() 方法重复执行时.这个方法被调用.由于ViewPropertyAnimator不支持重复,所以这个方法不适用
 
-####  3.2 ViewPropertyAnimator.setUpdateListener() / ObjectAnimator.addUpdateListener()
+###  3.2 ViewPropertyAnimator.setUpdateListener() / ObjectAnimator.addUpdateListener()
 
 和上面 3.1 的两个方法一样，这两个方法虽然名称和可设置的监听器数量不一样，但本质其实都一样的，它们的参数都是 AnimatorUpdateListener。它只有一个回调
 
 方法：onAnimationUpdate(ValueAnimator animation)。
 
-##### 3.2.1 onAnimationUpdate(ValueAnimator animation)
+#### 3.2.1 onAnimationUpdate(ValueAnimator animation)
 
 当动画的属性更新时（不严谨的说，即每过 10 毫秒，动画的完成度更新时），这个方法被调用。
 
@@ -171,11 +171,11 @@ animator.start();
 
 ValueAnimator 有很多方法可以用，它可以查看当前的动画完成度、当前的属性值等等。不过  ValueAnimator 是下一期才讲的内容，所以这期就不多说了。
 
-####  3.3 ObjectAnimator.addPauseListener()
+###  3.3 ObjectAnimator.addPauseListener()
 
 由于 ObjectAnimator.pause() 是下期的内容，所以这个方法在这期就不讲了。当然，如果你有兴趣的话，现在就了解一下也可以。
 
-####  3.3 ViewPropertyAnimator.withStartAction/EndAction()
+###  3.3 ViewPropertyAnimator.withStartAction/EndAction()
 
 这两个方法是 ViewPropertyAnimator 的独有方法。它们和 set/addListener() 中回调的 onAnimationStart() /  onAnimationEnd() 相比起来的不同主要有两点：
 
